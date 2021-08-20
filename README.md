@@ -1,10 +1,10 @@
 # Getting Started with Todo App
 ## What to do?
 
-Clone the application
+In a new editor, open the terminal and clone the application
 ### `git clone https://github.com/NaderNasr/TodoAuth.git`
 
-In the project directory, you can run:
+In the project directory, open the terminal and type:
 ### `yarn add`
 
 Runs the app in the development mode.\
