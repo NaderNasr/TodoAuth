@@ -1,4 +1,5 @@
 
+import { useAuth0 } from "@auth0/auth0-react";
 import { useState, useEffect } from "react";
 import "./App.css";
 import Form from "./components/Form";
@@ -10,6 +11,8 @@ function App() {
   const [todo, setTodo] = useState([]);
   const [status, setStatus] = useState("all");
   const [filterd, setFilters] = useState([]);
+
+  const {user, isAuthenticated, isLoading} = useAuth0()
 
   useEffect(() => {
     getLocal()
@@ -49,15 +52,15 @@ function App() {
     }
   };
 
+  if(isLoading) return <div>Loading...</div>
+
 
   return (
     
     <div className="App">
     <NavBar/>
       <header>
-      
-        <h1>Todo List</h1>
-        
+        {!isAuthenticated ? <h1>Welcome</h1> : <h1>Hi {user.given_name}! </h1>}
       </header>
       
       <Form
